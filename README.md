@@ -5,6 +5,12 @@ Sync Bluetooth for dualboot Linux and Windows
 User-friendly tool making your bluetooth devices working both in Windows and Linux without re-pairing chore.
   [more about dualboot Bluetooth issue](#dualboot-bluetooth-issue)
 
+### Fork updates
+
+- Fixed `No LinkKey problem`. 
+- Added support of other *LongTermKey for different devices.  
+
+
 ### bt-dualboot
   * doesn't require to reboot 3 times
   * ask you as much fewer details as possible
