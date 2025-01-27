@@ -37,6 +37,27 @@ def extract_info(device_info_path):
     ediv = config.get("LongTermKey", "EDiv", fallback=None)
     rand = config.get("LongTermKey", "Rand", fallback=None)
 
+    print("-- Sections")
+    for item in config.sections():
+        print(item)
+        print(config.options(item))
+
+    print("-- PeripheralKey")
+    print(config.get("PeripheralLongTermKey", "key", fallback=None))
+
+    print("-- SlaveKey")
+    print(config.get("SlaveLongTermKey", "key", fallback=None))
+
+    if long_term_key is None:
+        long_term_key = config.get("PeripheralLongTermKey", "key", fallback=None)
+        ediv = config.get("PeripheralLongTermKey", "ediv", fallback=None)
+        rand = config.get("PeripheralLongTermKey", "rand", fallback=None)
+
+    if long_term_key is None:
+        long_term_key = config.get("SlaveLongTermKey", "key", fallback=None)
+        ediv = config.get("SlaveLongTermKey", "ediv", fallback=None)
+        rand = config.get("SlaveLongTermKey", "rand", fallback=None)
+
     if not link_key and not long_term_key:
         raise KeyError("Neither LinkKey->Key nor LongTermKey->Key exist")
     # fmt: off
